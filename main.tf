@@ -31,16 +31,11 @@ resource "aws_eip" "noc_task_eip2" {
   associate_with_private_ip = var.private_ip_s2[0]
 }
 
-resource "aws_key_pair" "deployer" {
-  key_name   = "chlng-${var.prefix}"
-  public_key = var.publicKey
-}
 
 resource "aws_instance" "noc_task_instance1" {
   ami = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   availability_zone = var.az
-  key_name = "chlng-${var.prefix}"
   user_data =  <<-EOF
               #!/bin/bash
               sudo -i
@@ -66,7 +61,6 @@ resource "aws_instance" "noc_task_instance2" {
   ami = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   availability_zone = var.az
-  key_name = "chlng-${var.prefix}"
     user_data =  <<-EOF
               #!/bin/bash
               sudo -i
