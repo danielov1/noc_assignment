@@ -65,7 +65,7 @@ checkConfigured accessKey
 checkConfigured secretKey
 checkConfigured sessionToken
 
-## Install Terraform and apply tf config
+## Apply tf config
 
 cd ~/noc_assignment
 terraform init
