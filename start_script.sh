@@ -67,6 +67,6 @@ checkConfigured sessionToken
 
 ## Install Terraform and apply tf config
 
-# cd ~/noc_assignment
-# terraform init
-# terraform apply -input=true -auto-approve
+cd ~/noc_assignment
+terraform init
+terraform apply -input=true -auto-approve
