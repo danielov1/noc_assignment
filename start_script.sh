@@ -70,7 +70,6 @@ if [[ $choiceVar == 'destroy' ]]
         ## Destroy tf config
 
         cd ~/noc_assignment
-        echo "Destroying"
         terraform destroy -input=true -auto-approve
 
 elif [[ $choiceVar == 'apply' ]]
@@ -89,7 +88,6 @@ elif [[ $choiceVar == 'apply' ]]
         ## Apply tf config
 
         cd ~/noc_assignment
-        echo "Applying"
         terraform init
         terraform apply -input=true -auto-approve
 else
