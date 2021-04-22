@@ -12,25 +12,6 @@ else
 fi
 }
 
-## Create a new Private & Public key
-createPubKey () {
-    publicKeyCheck=$(ls -l ~/noc_assignment/ |grep -oh chlng.pub)
-
-if [[ $publicKeyCheck == "$1.pub" ]]
-    then
-        rm ~/noc_assignment/"$1" ~/noc_assignment/"$1.pub"
-        echo "Public & Private keys removed, generating new keys..."
-        cd ~/noc_assignment && ssh-keygen -f $1 -q -N ""
-        publicKey=$(cat $1.pub)
-else
-        echo "Generating new keys..."
-        cd ~/noc_assignment && ssh-keygen -f $1 -q -N ""
-        echo "Private key name is 'chlng'"
-        echo "Public key name is 'chlng.pub'"
-        publicKey=$(cat $1.pub)
-fi
-}
-
 ## Check if Quotes are existed, If not add Quotes
 checkQuotes () {
 if [[ $2 == *'"'* ]]
@@ -74,6 +55,8 @@ if [[ $choiceVar == 'destroy' ]]
 
 elif [[ $choiceVar == 'apply' ]]
     then
+        
+        
         ## Execute functions in order
         checkLinesRemove accessKey
         checkLinesRemove secretKey
